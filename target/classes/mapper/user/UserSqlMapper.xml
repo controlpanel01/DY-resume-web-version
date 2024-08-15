@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ddy.placproject.user.mapper.UserSqlMapper">
+
+	<!--
+	
+			오라클DB가 아니라 마리아DB여서 dual 과 seq.nextval 이 사용이 안됨
+	
+	 	<select id="setOracleMode" resultType="void">
+		 	SET SESSION sql_mode='ORACLE'
+		</select>
+		
+		<select id="createUserPk" resultType="int">
+			select pp_user_seq.nextval form dual
+		</select>
+	 -->
+
+	<insert id="insert">
+		INSERT into pp_user(user_id, password, nickname, email, gender, birthday, phone) values(
+			#{user_id},
+			#{password},
+			#{nickname},
+			#{email},
+			#{gender},
+			#{birthday},
+			#{phone}
+		)
+	</insert>
+
+	<!-- 주의 사항: select 경우... 꼭 resultType 을 지정해야한다. -->
+	<!-- ResultType은
+		이 쿼리가 실행될 때 실행된 결과를 어떤 오브젝트의 담을 수 있는지 지정할 수 있음... 필수로.. -->
+
+	<select id="selectByUserIdAndPassword" resultType="com.ddy.placproject.dto.UserDto">
+		SELECT * FROM pp_user WHERE user_id = #{user_id} AND password = #{password}
+	</select>
+
+	<select id="selectByPk" resultType="com.ddy.placproject.dto.UserDto">
+		SELECT * FROM pp_user WHERE user_pk = #{user_pk}
+	</select>
+
+	<!-- 취미 관련 쿼리 -->
+	<select id="selectHobbyCategoryAll" resultType="com.ddy.placproject.dto.HobbyCategoryDto">
+		select phc.* from pp_hobby_category phc order by phc.hobby_pk ASC;
+	</select>
+	
+	<insert id="insertUserHobby">
+		INSERT INTO pp_user_hobby puh(user_pk, hobby_pk) values(
+			#{user_pk},
+			#{hobby_pk}
+		)
+	</insert>
+
+
+</mapper>

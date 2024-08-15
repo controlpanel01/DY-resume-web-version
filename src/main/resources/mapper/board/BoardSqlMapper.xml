@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ddy.placproject.board.mapper.BoardSqlMapper">
+
+	<insert id="insert">
+		INSERT INTO pp_freeboard_article(user_pk, title, content, read_cnt) values(
+			#{user_pk},
+			#{title},
+			#{content},
+			0
+		)
+	</insert>
+
+	<select id="selectAll" resultType="com.ddy.placproject.dto.FreeboardArticleDto">
+		
+		SELECT * FROM pp_freeboard_article order by article_pk DESC
+		
+	</select>
+
+	<select id="selectByArticlePk" resultType="com.ddy.placproject.dto.FreeboardArticleDto">
+		SELECT * FROM pp_freeboard_article WHERE article_pk = #{article_pk}
+	</select>
+	
+	<update id="increaseReadCnt">
+		UPDATE pp_freeboard_article SET read_cnt = read_cnt + 1 WHERE article_pk = #{article_pk}
+	</update>
+
+	<delete id="deleteArticle">
+		DELETE FROM pp_freeboard_article WHERE article_pk = #{article_pk}
+	</delete>
+	
+	<update id="modifyArticle">
+		UPDATE pp_freeboard_article SET title = #{title}, content = #{content} WHERE article_pk = #{article_pk}
+	</update>
+
+</mapper>
