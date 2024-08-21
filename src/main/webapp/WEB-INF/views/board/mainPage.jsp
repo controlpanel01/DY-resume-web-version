@@ -26,14 +26,38 @@
 		/* .rowmargin{
 			margin: 5em 3em;
 		} */
+		.skills {
+			background-color : transparent; /* 배경색 없 */
+			border: 0.09em solid white;	/* 테두리 흰색 두께 설정 */
+			border-radius: 1.625em; /* 둥근 모서리 */
+			display: inline-block; /* 글자 크기에 맞게 박스 크기 설정 */
+			padding: 0.313em 0.5em; /* 글자와 테두리 사이 여백 추가 */
+			margin: 0.2em;
+		}
+		/* .gradientMain {
+			background-image: linear-gradient(direction|angle, color-stop1, color-stop2)
+		} */
+		/* 그라디언트 이미지 */
+
+		.my_gradient_4 {
+			background-image: linear-gradient(to left, black, white);
+			height: 20em;
+		} 
+
+		}
+		.outer_div {
+		    width: 400px;
+		    float: left;    
+		    border: 1px solid;
+		}
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid mx-0">
 		<div class="row">
 			<div class="col"></div>
 		</div>
-		<div class="row px-4">
+		<div class="row">
 			
 			<div class="col" style="text-align:right">
 				<c:choose>
@@ -50,7 +74,7 @@
 			</div>
 			
 		</div>
-		<div class="row mx-0">
+		<div class="row">
 			<div class="col">
 				<div class="row" style="line-height: 10em">
 					<div class="col" style="text-align:center">
@@ -59,7 +83,7 @@
 								Hi I'm
 							</div>
 						</div>
-						<div class="row" style="font-size: 10em; line-height: 0.05em">
+						<div class="row" style="font-size: 10em; line-height: 0.05em word-break: break-word;">
 							<div class="col">
 								Web developer
 							</div>
@@ -73,15 +97,27 @@
 				</div>
 			</div>	
 		</div>
-		<div class="row"></div>
+		<!-- 이미지 넣을 곳 -->
 		<div class="row">
+		
+			<div>
+				<div class="outer_div">
+					<div class="my_gradient_4"></div>
+				</div>
+			</div>
+			
+		
+		</div>
+		<div class="row mt-5 pt-5">
 			<div class="col">
-				<div class="row">
-					<div class="col">
-						소개
+				<div class="row ps-5 ms-3">
+					<!-- <div class="col-md-1">
+					</div> -->
+					<div class="col" style="text-align:left;">
+						INTRO
 					</div>
 				</div>
-				<div class="row">
+				<div class="row ps-5 ms-3">
 					<div class="col">
 						<div class="row pb-0 pt-3" style="align-items:baseline; line-height: 0.1em;">
 							<div class="col">
@@ -98,10 +134,10 @@
 								Do Yul
 							</div>
 						</div>
-						<div class="row pt-5">
+						<div class="row">
 							<div class="col">
 							내용 바꿀 것<br>
-							내용 바꿀 것<br>
+							내용 바1 것<br>
 							내용 바꿀 것<br>
 							약4년 이상의 비 개발 실무 경험으로 타 부서와의 유연한 소통이 가능한 개발자
 							</div>
@@ -111,9 +147,10 @@
 					<div class="col">
 						<div class="row">
 							<div class="col">
-								경험
+								EXPERIENCE
 							</div>
 						</div>
+						<div class="row py-4"></div>
 						<div class="row">
 							<div class="col-md-4">
 								2023.08 ~ 2024.03
@@ -125,7 +162,7 @@
 								</div>
 							</div>
 						</div>
-						
+						<div class="row py-4"></div>
 						<div class="row">
 							<div class="col-md-4">
 								2024.01 ~ 2024.02
@@ -142,8 +179,36 @@
 						</div>
 					</div>
 				</div>
+				<br>
 				<!-- 기술스택 -->
-				Java
+				<div class="row pt-5">
+					<div class="col">
+						<div class="row">
+							<div class="col" style="font-weight: 700; font-size: 1.5em">
+								Tech Stack
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="skills">Java</div>
+								<div class="skills">Spring Boot</div>
+								<div class="skills">Bootstrap</div>
+								<div class="skills">Mybatis</div>
+								<div class="skills">Maven</div>
+								<div class="skills">Gradle</div>
+								<div class="skills">Spring Web</div>
+								<div class="skills">MariaDB</div>
+								<div class="skills">MySQL</div>
+								<div class="skills">Oracle</div>
+								<div class="skills">Apache</div>
+								<div class="skills">GitHub</div>
+								<div class="skills">Eclipse</div>
+								<div class="skills">Visual Studio Code</div>
+						
+							</div>
+						</div>	
+					</div>
+				</div>
 				
 				<div class="row">
 					<div class="col"></div>
